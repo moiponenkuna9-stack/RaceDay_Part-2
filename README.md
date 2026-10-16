@@ -1,22 +1,3 @@
-**START HERE:** See [`docs/LOCAL_SETUP_FIRST.md`](docs/LOCAL_SETUP_FIRST.md) for exact Visual Studio and SQL Server setup. Swagger starts without SQL Server, but functional database requests require SQL Server. Check `/api/system/database-status` after launch.
-
-# RaceDay System – Part 2 RESTful API
-
-## Local database setup before testing
-
-The API uses SQL Server through the `RaceDayConnection` connection string in `appsettings.json`. The default development connection targets SQL Server LocalDB: `(localdb)\MSSQLLocalDB`.
-
-You do **not** need to publish to Azure or configure Connected Services to run the project locally. If LocalDB is not installed on your computer, install **SQL Server Express LocalDB** (or use an existing SQL Server/SQL Express instance and update the connection string).
-
-The startup code now handles a missing database connection gracefully: Swagger can still open so the API documentation is visible. Database-backed endpoint tests require a working SQL Server connection.
-
-### Run locally
-1. Open `RaceDay.Part2.sln` in Visual Studio.
-2. Set `RaceDay.Part2` as the startup project.
-3. Press **F5**.
-4. Swagger should open at `/swagger`.
-5. If SQL Server LocalDB is available, the application creates/seeds `RaceDayDB_Part2` automatically.
-6. If LocalDB is unavailable, configure the `RaceDayConnection` string and restart.
 
 ## Project purpose
 This project implements the RaceDay event management system planned in Part 1. Part 2 turns the approved planning artefacts into a working ASP.NET Core Web API backed by SQL Server through Entity Framework Core Code-First.
